@@ -15,6 +15,7 @@ body {
     justify-content: center;
     color: white;
     font-family: 'Bruno Ace', cursive;
+    padding: 20px; /* Add padding to body */
 }
 
 @keyframes glowing {
@@ -100,10 +101,11 @@ input[type="file"] {
 }
 
 .puzzle-container {
-    width: 100%;
+    width: 100vw;
+    height: 100vw;
     max-width: 450px;
+    max-height: 450px;
     margin: auto;
-    height: 450px;
     background-size: cover;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -130,7 +132,8 @@ input[type="file"] {
     width: 100vw;
     height: 100vh;
     display: none;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color:
+    rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(5px);
     justify-content: center;
     align-items: center;
@@ -197,8 +200,10 @@ h2 {
 /* Media Queries */
 @media (max-width: 768px) {
     .puzzle-container {
-        width: 90%;
+        width: 90vw;
         height: 90vw;
+        max-width: none;
+        max-height: none;
     }
 
     .tile {
@@ -230,8 +235,10 @@ h2 {
     }
 
     .puzzle-container {
-        width: 100%;
-        height: auto;
+        width: 90vw;
+        height: 90vw;
+        max-width: none;
+        max-height: none;
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: repeat(3, 1fr);
     }
