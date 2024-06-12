@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blaise Boredom Killer Puzzle</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="container text-center">
+        <h1 class="game-title">Blaise Boredom Killer Puzzle</h1>
+        <h2 class ="glowing-text"> Convert your Beautiful Images into a Puzzle and Try to Assemble them back to one piece</h2>
+        <div class="game-controls">
+            <input type="file" id="imageUpload" class="form-control-file" accept="image/*">
+            <div id="timer" class="timer">00:00</div>
+            <button class="refresh" onclick="location.reload()">Refresh</button>
+            <button class="shuffle" onclick="shufflePuzzle()">Shuffle</button>
+        </div>
+        
+        <div class="puzzle-container">
+            <div class="tile" onclick="MoveMe(0)">1</div>
+            <div class="tile" onclick="MoveMe(1)">2</div>
+            <div class="tile" onclick="MoveMe(2)">3</div>
+            <div class="tile" onclick="MoveMe(3)">4</div>
+            <div class="tile" onclick="MoveMe(4)">5</div>
+            <div class="tile" onclick="MoveMe(5)">6</div>
+            <div class="tile" onclick="MoveMe(6)">7</div>
+            <div class="tile" onclick="MoveMe(7)">8</div>
+            <div class="emtile"></div>
+        </div>
+        <h3>Uploaded Image Preview:</h3>
+        <img id="uploadedImage" width="300" height="300" style="background-color: white;">
+        <div class="howtoplay">
+            <h1>HOW TO PLAY</h1>
+            <ul>
+               
+                    <li>Upload an Image via the Image Uploader</li>
+                    <li>Shuffle the Image by click on a square to move it around</li>
+                    <li>Keep doing this to get the Perfect Shape</li>
+                    <li>Use the shuffle to shuffle the puzzle to your advantage</li>
+                    <li>Refresh refreshes the game and you have to start all over and upload a new Image</li>
+               
+                    <li> The timer tells you how long it took you to complete a shuffle, break your records at every point of playing a new game</li>
+                </ul>
+        
+        </div>
+    </div>
+    <div class="blscreen">
+        <div class="winScreen">
+            <img src="https://images.unsplash.com/photo-1679931974847-bbb01236fe88?crop=entropy&cs=srgb&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2ODIwNDg5Mzc&ixlib=rb-4.0.3&q=85" alt="">
+            <div class="WinMessage">
+                <h2>You Won The Match</h2>
+                <div class="StarGroup">
+                    <svg viewBox="0 0 576 512" width="90" title="star">
+                        <path d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z" />
+                    </svg>
+                    <svg viewBox="0 0 576 512" width="90" title="star">
+                        <path d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z" />
+                    </svg>
+                    <svg viewBox="0 0 576 512" width="90" title="star">
+                        <path d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z" />
+                    </svg>
+                </div>
+                Moves: <i class="MovesCount"></i>
+                <div class="buttonGroup">
+                    <button onclick="location.reload()" class="btn btn-success">Play Again!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

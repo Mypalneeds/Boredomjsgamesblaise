@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+   
+}
+
+body {
+    height: 100vh;
+    background-color: #1a1a3f; /* Dark blue background */
+    display: flex;
+    flex-direction: column;
+   
+    color: white;
+
+}
+
+@keyframes glowing {
+    0% {
+        text-shadow: 0 5px 5px #ff0000, 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff0000, 0 0 50px #ff0000, 0 0 60px #ff0000, 0 0 70px #ff0000;
+        color: #ff0000;
+    }
+    15% {
+        text-shadow: 0 5px 5px #00ff00, 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00, 0 0 40px #00ff00, 0 0 50px #00ff00, 0 0 60px #00ff00, 0 0 70px #00ff00;
+        color: #00ff00;
+    }
+    20% {
+        text-shadow: 0 5px 5px #0000ff, 0 0 10px #0000ff, 0 0 20px #0000ff, 0 0 30px #0000ff, 0 0 40px #0000ff, 0 0 50px #0000ff, 0 0 60px #0000ff, 0 0 70px #0000ff;
+        color: #0000ff;
+    }
+    55% {
+        text-shadow: 0 5px 5px #ffff00, 0 0 10px #ffff00, 0 0 20px #ffff00, 0 0 30px #ffff00, 0 0 40px #ffff00, 0 0 50px #ffff00, 0 0 60px #ffff00, 0 0 70px #ffff00;
+        color: #ffff00;
+    }
+    90% {
+        text-shadow: 0 5px 5px #ff00ff, 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #ff00ff, 0 0 40px #ff00ff, 0 0 50px #ff00ff, 0 0 60px #ff00ff, 0 0 70px #ff00ff;
+        color: #ff00ff;
+    }
+}
+
+.glowing-text {
+    font-family: 'Bruno Ace', cursive;
+    font-size: 2.5em;
+    text-align: center;
+    animation: glowing 10s infinite;
+}
+
+
+.game-title {
+    font-family: 'Bruno Ace', cursive;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    color: #fff;
+}
+
+.game-controls {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 10px;
+    margin: auto;
+    padding: 10px;
+}
+
+input[type="file"] {
+    color: #fff;
+}
+
+.timer {
+    font-size: 1.5em;
+}
+
+.refresh {
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    width: auto;
+    margin: 10px 20px;
+    padding: 10px 20px;
+    height: auto;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.shuffle {
+    background-color: #f3b007;
+    color: white;
+    border: none;
+    width: auto;
+    margin: 10px 20px;
+    padding: 10px 20px;
+    height: auto;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.puzzle-container {
+    width: 450px;
+    margin: auto;
+    height: 450px;
+    background-size: cover;
+    display: grid;
+    grid-template-columns: repeat(3, 150px);
+    grid-template-rows: repeat(3, 150px);
+    margin-bottom: 20px;
+}
+
+.tile {
+    font-weight: 900;
+    font-family: 'Bruno Ace', cursive;
+    font-size: 2em;
+    margin: 3px;
+    padding: 15px;
+    border-radius: 5px;
+    transition-duration: 0.5s;
+    -webkit-text-stroke: 0.001px white;
+    background-color: #007bff;
+    color: rgb(129, 12, 92);
+}
+
+.blscreen {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    display: none;
+    background-color: rgb(197, 31, 199);
+    backdrop-filter: blur(2px);
+}
+
+.winScreen {
+    width: 600px;
+    height: 300px;
+    margin: auto;
+    background-color: #ced4da;
+    border-radius: 10px;
+    display: flex;
+    font-family: sans-serif;
+    box-shadow: 1px 1px 10px 5px rgba(0, 0, 0, 0.5);
+}
+
+.winScreen > img {
+    width: 300px;
+    height: 300px;
+    border-radius: 10px;
+}
+
+.WinMessage {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    font-size: 1.1em;
+}
+
+h2 {
+    text-align: center;
+    padding: 5px;
+}
+
+.buttonGroup {
+    margin: auto;
+}
+
+.buttonGroup > button {
+    padding: 5px 20px;
+    border-radius: 20px;
+    margin: 10px;
+    font-size: 1.1em;
+    background-color: #40916c;
+    font-weight: bolder;
+    color: white;
+    font-family: 'Bruno Ace';
+    cursor: pointer;
+}
