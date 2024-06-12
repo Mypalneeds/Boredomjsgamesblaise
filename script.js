@@ -33,18 +33,6 @@ document.getElementById('imageUpload').addEventListener('change', function (even
     reader.readAsDataURL(event.target.files[0]);
 });
 
-// Shuffle the puzzle pieces
-function shufflePuzzle() {
-    var tiles = document.getElementsByClassName('tile');
-    for (var i = 0; i < tiles.length; i++) {
-        var randomIndex = Math.floor(Math.random() * tiles.length);
-        var tempStyle = tiles[i].style.cssText;
-        tiles[i].style.cssText = tiles[randomIndex].style.cssText;
-        tiles[randomIndex].style.cssText = tempStyle;
-    }
-}
-
-
 // Create puzzle pieces from uploaded image
 function createPuzzlePieces(img) {
     var tiles = document.getElementsByClassName('tile');
@@ -55,8 +43,26 @@ function createPuzzlePieces(img) {
         tiles[i].style.backgroundImage = `url(${img.src})`;
         tiles[i].style.backgroundPosition = `-${x}px -${y}px`;
         tiles[i].style.backgroundSize = '450px 450px';
+        tiles[i].style.gridArea = `${Math.floor(i / 3) + 1} / ${i % 3 + 1}`;
     }
     startTimer();
+}
+
+// Shuffle the puzzle pieces
+function shufflePuzzle() {
+    var tiles = document.getElementsByClassName('tile');
+    var positions = [];
+    for (let i = 0; i < tiles.length; i++) {
+        positions.push(tiles[i].style.gridArea);
+    }
+    for (let i = positions.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        [positions[i], positions[j]] = [positions[j], positions[i]];
+    }
+    for (let i = 0; i < tiles.length; i++) {
+        tiles[i].style.gridArea = positions[i];
+    }
+    RandomPos = positions.map(pos => pos.replace(/\s/g, ''));
 }
 
 // Generate random positions for the puzzle pieces
@@ -96,22 +102,21 @@ function MoveMe(tile) {
         if (RandomPos.join(".") == NeededPos.join(".")) {
             console.log("Game Beated");
             clearInterval(timerInterval); // Stop the timer
-            document.querySelector(".blscreen").style.display = 'flex'
+            document.querySelector(".blscreen").style.display = 'flex';
             document.querySelector(".MovesCount").innerHTML = MovesCount;
             var stars = 0;
             if (MovesCount < 100) {
-                stars = 3
+                stars = 3;
             } else if (MovesCount < 200) {
-                stars = 2
+                stars = 2;
             } else if (MovesCount < 300) {
-                stars = 1
+                stars = 1;
             } else {
-                stars = 0
+                stars = 0;
             }
-            for (let i = 0; i < 2; i++) {
-                document.getElementsByTagName("path").style.fill = "yellow"
+            for (let i = 0; i < stars; i++) {
+                document.getElementsByTagName("path")[i].style.fill = "yellow";
             }
         }
     }
 }
-
