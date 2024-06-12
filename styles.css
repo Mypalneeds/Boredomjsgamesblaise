@@ -55,11 +55,6 @@ body {
     color: #fff;
 }
 
-.emtile {
-    visibility: hidden;
-    grid-area: 3 / 3;
-}
-
 .game-controls {
     display: flex;
     flex-wrap: wrap;
